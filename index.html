@@ -50,7 +50,7 @@
     btn.disabled=true; say('Abrindo o painel...');
     var buf;
     try{
-      var r=await fetch('dados.enc',{cache:'no-store'});
+      var r=await fetch('dados.enc?v='+Date.now(),{cache:'no-store'});
       if(!r.ok) throw new Error('rede');
       buf=new Uint8Array(await r.arrayBuffer());
     }catch(e){ say('Não foi possível carregar o painel. Tente de novo.',true); btn.disabled=false; return; }
